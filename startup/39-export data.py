@@ -30,7 +30,7 @@ def export_E_fly(scanID=-1):
     roi = rois(element)
     d = np.array(list(h.data('fluor', stream_name='primary', fill=True)))
     If = np.sum(d[:, :, :, roi[0]:roi[1]], axis=-1)
-    I_TEY = h.table()['fbratio']
+    I_Trans_TEY = h.table()['fbratio']
     E = h.table('energy_bins')['E_centers'][1]
     I0 = h.table()['I0']
     I_sclr_S = h.table()['S']
@@ -53,7 +53,7 @@ def export_E_fly(scanID=-1):
             df = pd.DataFrame({'#Energy': E,
                                'Dwell_time': Dwell_time[ii + 1],
                                'I0': I0[ii + 1],
-                               'I_TEY':I_TEY[ii+1],
+                               'I_Trans_TEY ':I_Trans_TEY[ii+1],
                                'If_CH1': If[ii, :, 0],
                                'I_sclr_S': I_sclr_S[ii + 1]
                                })
@@ -61,7 +61,7 @@ def export_E_fly(scanID=-1):
             df = pd.DataFrame({'#Energy': E,
                                'Dwell_time': Dwell_time[ii + 1],
                                'I0': I0[ii + 1],
-                               'I_TEY': I_TEY[ii + 1],
+                               'I_Trans_TEY ': I_Trans_TEY[ii + 1],
                                'If_CH1': If[ii, :, 0],
                                'If_CH2': If[ii, :, 1],
                                'I_sclr_S': I_sclr_S[ii + 1]
@@ -110,7 +110,7 @@ def export_E_step(scanID=-1, scan_iter=0):
 
     #E = h.table()['mono_energy']
     I0 = h.table()['I0']
-    I_TEY = h.table()['fbratio']
+    I_Trans_TEY = h.table()['fbratio']
     If_1_roi1 = h.table()['xs_channel1_rois_roi01_value_sum']
     If_1_roi2 = h.table()['xs_channel1_rois_roi02_value_sum']
     If_1_roi3 = h.table()['xs_channel1_rois_roi03_value_sum']
@@ -123,7 +123,7 @@ def export_E_step(scanID=-1, scan_iter=0):
     #df = pd.DataFrame({'#Energy': E, 'I0': I0, 'I_TEY':I_TEY,
     #                   'If_CH1_roi1': If_1_roi1, 'If_CH1_roi2': If_1_roi2, 'If_CH1_roi3':If_1_roi3, 'If_CH1_roi4': If_1_roi4,
     #                   'If_CH2_roi1': If_2_roi1, 'If_CH2_roi2': If_2_roi2, 'If_CH2_roi3':If_2_roi3, 'If_CH2_roi4': If_2_roi4})
-    df = pd.DataFrame({'#Energy': E, 'I0': I0, 'I_TEY': I_TEY,
+    df = pd.DataFrame({'#Energy': E, 'I0': I0, 'I_Trans_TEY': I_Trans_TEY,
                        'If_CH1_roi1': If_1_roi1, 'If_CH1_roi2': If_1_roi2, 'If_CH1_roi3': If_1_roi3,
                        'If_CH1_roi4': If_1_roi4})
     #df['#Energy'] = df1['#Energy'].str.rjust(13, " ")

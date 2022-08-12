@@ -114,7 +114,7 @@ class Xspress3FileStoreFlyable(Xspress3FileStore):
             ttime.sleep(0.1)  # abundance of caution
             set_and_wait(sig, val)
 
-        ttime.sleep(2)  # wait for acquisition
+        ttime.sleep(0)  # wait for acquisition
 
         for sig, val in reversed(list(original_vals.items())):
             ttime.sleep(0.1)
