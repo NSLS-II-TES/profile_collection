@@ -53,11 +53,11 @@ RE.install_suspender(ring_suspender)
 #RE.install_suspender(solenoid_v_suspenderCeil)
 #RE.install_suspender(solenoid_v_suspenderFloor)
 
-if not auto_alignment_mode():
-    print("Installing I0_suspenderFloor...")
-    RE.install_suspender(I0_suspenderFloor)
-else:
-    print("Not installing I0_suspenderFloor.")
+# if not auto_alignment_mode():
+#     print("Installing I0_suspenderFloor...")
+#     RE.install_suspender(I0_suspenderFloor)
+# else:
+#     print("Not installing I0_suspenderFloor.")
 
 print("\nRE.suspenders:")
 for s in RE.suspenders:
